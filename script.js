@@ -29,7 +29,7 @@ let bidHistory = [];
 function updateLeaderboard() {
     const leaderboardList = document.getElementById('leaderboard-list');
     leaderboardList.innerHTML = teams
-        .sort((a, b) => b.points - a.points)  // ✅ Fixed sorting based on `points`
+        .sort((a, b) => b.points - a.points)  
         .map(team => `
             <div class="team-rank">
                 <span>${team.name}</span>
