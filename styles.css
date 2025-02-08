@@ -1,6 +1,6 @@
 /* General Styles */
 body {
-    background: linear-gradient(90deg, #000000, #1a1a1a);
+    background: linear-gradient(90deg, #000000 , #090e21e6 );
     color: white;
     height: 100vh;
     margin: 0;
@@ -122,6 +122,47 @@ body {
     height: 5vh;
     border-radius: 50%;
 }
+.team-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Ensure budget stays aligned */
+    gap: 10px;
+}
+
+.team-budget {
+    font-weight: bold;
+    color: #ffcc00; /* Gold color for money */
+    font-size: 1rem;
+}
+.current-bidder {
+    margin-top: 10px;
+    font-size: 1.1em;
+    color: #ffcc00; /* Gold color for visibility */
+    font-weight: bold;
+}
+
+.bidding-history-container {
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.bidding-history-box {
+    max-height: 150px;
+    overflow-y: auto;
+    background: #252525;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.bid-entry {
+    padding: 5px;
+    border-bottom: 1px solid #4CAF50;
+    font-size: 1em;
+}
+
+
 
 /* Scrollbar Styling */
 ::-webkit-scrollbar {

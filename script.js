@@ -1,102 +1,43 @@
-const teams = [
-    {
-        name: "CSK",
-        logo: "https://upload.wikimedia.org/wikipedia/en/2/2b/Chennai_Super_Kings_Logo.svg",
-        players: [
-            { name: "MS Dhoni", role: "Wicketkeeper", price: "₹9 Cr", image: "dhoni.jpg" },
-            { name: "Ravindra Jadeja", role: "All-rounder", price: "₹7 Cr", image: "jadeja.jpg" },
-            { name: "Ruturaj Gaikwad", role: "Batsman", price: "₹6 Cr", image: "gaikwad.jpg" }
-        ],
-        score: 1500
-    },
-    {
-        name: "RCB",
-        logo: "https://upload.wikimedia.org/wikipedia/en/2/2a/Royal_Challengers_Bangalore_2020.svg",
-        players: [
-            { name: "Virat Kohli", role: "Batsman", price: "₹8.5 Cr", image: "kohli.jpg" },
-            { name: "Faf du Plessis", role: "Batsman", price: "₹7.5 Cr", image: "faf.jpg" },
-            { name: "Glenn Maxwell", role: "All-rounder", price: "₹7 Cr", image: "maxwell.jpg" }
-        ],
-        score: 1400
-    }
+let teams = [
+    { name: "CSK", logo: "https://upload.wikimedia.org/wikipedia/en/2/2b/Chennai_Super_Kings_Logo.svg", players: [], budget: 100, points: 0 },
+    { name: "MI", logo: "https://upload.wikimedia.org/wikipedia/en/c/cd/Mumbai_Indians_Logo.svg", players: [], budget: 100, points: 0 },
+    { name: "RCB", logo: "https://upload.wikimedia.org/wikipedia/en/6/60/Royal_Challengers_Bangalore_Logo.svg", players: [], budget: 100, points: 0 },
+    { name: "KKR", logo: "https://upload.wikimedia.org/wikipedia/en/a/a8/Kolkata_Knight_Riders_Logo.svg", players: [], budget: 100, points: 0 },
+    { name: "DC", logo: "https://upload.wikimedia.org/wikipedia/en/2/2f/Delhi_Capitals.svg", players: [], budget: 100, points: 0 },
+    { name: "SRH", logo: "https://upload.wikimedia.org/wikipedia/en/8/81/Sunrisers_Hyderabad.svg", players: [], budget: 100, points: 0 },
+    { name: "RR", logo: "https://upload.wikimedia.org/wikipedia/en/6/60/Rajasthan_Royals_Logo.svg", players: [], budget: 100, points: 0 },
+    { name: "GT", logo: "https://upload.wikimedia.org/wikipedia/en/d/d4/Gujarat_Titans_Logo.svg", players: [], budget: 100, points: 0 }
+];
+
+const allPlayers = [
+    { name: "MS Dhoni", role: "Wicketkeeper", price: 9, image: "dhoni.jpg" },
+    { name: "Virat Kohli", role: "Batsman", price: 8.5, image: "kohli.jpg" },
+    { name: "Rohit Sharma", role: "Batsman", price: 9.5, image: "rohit.jpg" },
+    { name: "Ravindra Jadeja", role: "All-rounder", price: 7, image: "jadeja.jpg" },
+    { name: "Hardik Pandya", role: "All-rounder", price: 9, image: "hardik.jpg" },
+    { name: "Jasprit Bumrah", role: "Bowler", price: 9.2, image: "bumrah.jpg" },
+    { name: "David Warner", role: "Batsman", price: 8.2, image: "warner.jpg" },
+    { name: "Ben Stokes", role: "All-rounder", price: 9.8, image: "stokes.jpg" },
+    { name: "Sam Curran", role: "All-rounder", price: 9.1, image: "curran.jpg" },
+    { name: "Andre Russell", role: "All-rounder", price: 9.3, image: "russell.jpg" }
 ];
 
 let currentPlayerIndex = 0;
-let allPlayers = [];
+let currentBidder = null;
+let bidHistory = [];
 
-// Extract all players from teams into a separate array
-teams.forEach(team => {
-    team.players.forEach(player => {
-        allPlayers.push({ ...player, teamName: team.name });
-    });
-});
-
-// Function to update leaderboard
 function updateLeaderboard() {
     const leaderboardList = document.getElementById('leaderboard-list');
     leaderboardList.innerHTML = teams
-        .sort((a, b) => b.score - a.score)
+        .sort((a, b) => b.points - a.points)  // ✅ Fixed sorting based on `points`
         .map(team => `
             <div class="team-rank">
                 <span>${team.name}</span>
-                <span>${team.score} pts</span>
+                <span>${team.points} pts</span>
             </div>
         `).join('');
 }
 
-// Function to update the current player display
-function updateCurrentPlayer() {
-    if (currentPlayerIndex >= allPlayers.length) {
-        alert("All players have been assigned!");
-        return;
-    }
-
-    let currentPlayer = allPlayers[currentPlayerIndex];
-
-    // Mock statistics for testing
-    let randomStats = {
-        runs: Math.floor(Math.random() * 1000),
-        average: (Math.random() * 50).toFixed(2),
-        strikeRate: (Math.random() * 150).toFixed(1),
-        matches: Math.floor(Math.random() * 20) + 1
-    };
-
-    // Update UI elements
-    document.getElementById("player-name").innerText = currentPlayer.name;
-    document.getElementById("player-role").innerText = currentPlayer.role;
-    document.getElementById("current-bid").innerText = `Current Bid: ${currentPlayer.price}`;
-    document.getElementById("player-runs").innerText = randomStats.runs;
-    document.getElementById("player-average").innerText = randomStats.average;
-    document.getElementById("player-strike-rate").innerText = randomStats.strikeRate;
-    document.getElementById("player-matches").innerText = randomStats.matches;
-
-    // Update player image (default if missing)
-    let imageElement = document.getElementById("player-image");
-    imageElement.src = currentPlayer.image ? currentPlayer.image : "default-player.png";
-}
-
-// Function to handle "Next Player" button click
-function nextPlayer() {
-    if (currentPlayerIndex >= allPlayers.length) return;
-
-    let player = allPlayers[currentPlayerIndex];
-
-    // Find the player's team and add them to their respective team
-    let team = teams.find(t => t.name === player.teamName);
-    if (team) {
-        team.players.push(player);
-    }
-
-    // Move to next player
-    currentPlayerIndex++;
-
-    // Update UI components
-    updateLeaderboard();
-    createTeamCards();
-    updateCurrentPlayer();
-}
-
-// Function to create team cards
 function createTeamCards() {
     const teamListContainer = document.getElementById('team-list-container');
     teamListContainer.innerHTML = teams.map(team => `
@@ -104,14 +45,15 @@ function createTeamCards() {
             <div class="team-header">
                 <img src="${team.logo}" alt="${team.name} Logo" class="team-logo">
                 <h3 class="team-name">${team.name}</h3>
+                <span class="team-budget">💰 ₹${team.budget} Cr</span>
             </div>
             <div class="players-scroll">
-                ${team.players.map(player => `
+                ${team.players.length === 0 ? "<p>No players yet</p>" : team.players.map(player => `
                     <div class="player-card">
-                        <img src="${player.image ? player.image : 'default-player.png'}" alt="${player.name}">
+                        <img src="${player.image}" alt="${player.name}" class="player-img">
                         <div>${player.name}</div>
                         <div>${player.role}</div>
-                        <div>${player.price}</div>
+                        <div>₹${player.price} Cr</div>
                     </div>
                 `).join('')}
             </div>
@@ -119,10 +61,74 @@ function createTeamCards() {
     `).join('');
 }
 
-// Attach event listener to "Next Player" button
-document.getElementById("next-player-btn").addEventListener("click", nextPlayer);
+function nextPlayer() {
+    if (currentPlayerIndex >= allPlayers.length - 1) {
+        alert("All players have been processed!");
+        return;
+    }
+    
+    currentPlayerIndex++;
+    bidHistory = [];  // ✅ Reset bidding history for new player
+    displayPlayer();
+    updateBidHistory();  // ✅ Clear the history box
+}
 
-// Initialize UI
-updateCurrentPlayer();
+
+function displayPlayer() {
+    let player = allPlayers[currentPlayerIndex];
+
+    let eligibleTeams = teams.filter(team => team.budget >= player.price);
+    currentBidder = eligibleTeams.length > 0 ? eligibleTeams[Math.floor(Math.random() * eligibleTeams.length)] : null;
+
+    document.getElementById('player-name').textContent = player.name;
+    document.getElementById('player-role').textContent = player.role;
+    document.getElementById('current-bid').textContent = `Current Bid: ₹${player.price} Cr`;
+    document.getElementById('current-bidder').innerHTML = currentBidder ? `<strong>Bidder:</strong> ${currentBidder.name} 🏏` : `<strong>Bidder:</strong> None`;
+    document.getElementById('player-image').src = player.image;
+    
+    document.getElementById('sell-player-btn').disabled = false;
+    updateBidHistory();  // ✅ Refresh bid history display
+}
+
+function sellPlayer() {
+    if (!currentBidder) {
+        alert("No team has placed a bid yet!");
+        return;
+    }
+
+    let player = allPlayers[currentPlayerIndex];
+
+    if (currentBidder.budget < player.price) {
+        alert(`${currentBidder.name} does not have enough funds!`);
+        return;
+    }
+
+    // Save bid in history
+    bidHistory.push({ team: currentBidder.name, amount: player.price });
+
+    // Assign the player
+    currentBidder.players.push(player);
+    currentBidder.points += player.price * 10;
+    currentBidder.budget -= player.price;
+
+    createTeamCards();
+    updateLeaderboard();
+    updateBidHistory();  // ✅ Update bidding history
+
+    document.getElementById('sell-player-btn').disabled = true;
+}
+
+function updateBidHistory() {
+    const historyContainer = document.getElementById('bidding-history');
+    historyContainer.innerHTML = bidHistory.length === 0 
+        ? "<p>No bids yet</p>" 
+        : bidHistory.map(entry => `<div class="bid-entry">${entry.team} bid ₹${entry.amount} Cr</div>`).join('');
+}
+
+
+document.getElementById('next-player-btn').addEventListener('click', nextPlayer);
+document.getElementById('sell-player-btn').addEventListener('click', sellPlayer);
+
 updateLeaderboard();
 createTeamCards();
+displayPlayer();
