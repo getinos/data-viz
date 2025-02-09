@@ -24,7 +24,7 @@
 
         <!-- Center: Current Player Panel -->
         <div class="current-player">
-            <!-- <div class="player-image-container">
+            <!-- <div class="player-image-container" //>
                 <img id="player-image" src="default-player.png" alt="Player">
             </div>
             <h2 id="player-name">Player Name</h2>
