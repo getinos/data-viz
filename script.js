@@ -26,17 +26,17 @@ let currentPlayerIndex = 0;
 let currentBidder = null;
 let bidHistory = [];
 
-function updateLeaderboard() {
-    const leaderboardList = document.getElementById('leaderboard-list');
-    leaderboardList.innerHTML = teams
-        .sort((a, b) => b.points - a.points)  
-        .map(team => `
-            <div class="team-rank">
-                <span>${team.name}</span>
-                <span>${team.points} pts</span>
-            </div>
-        `).join('');
-}
+// function updateLeaderboard() {
+//     const leaderboardList = document.getElementById('leaderboard-list');
+//     leaderboardList.innerHTML = teams
+//         .sort((a, b) => b.points - a.points)  
+//         .map(team => `
+//             <div class="team-rank">
+//                 <span>${team.name}</span>
+//                 <span>${team.points} pts</span>
+//             </div>
+//         `).join('');
+// }
 
 function createTeamCards() {
     const teamListContainer = document.getElementById('team-list-container');
@@ -61,17 +61,17 @@ function createTeamCards() {
     `).join('');
 }
 
-function nextPlayer() {
-    if (currentPlayerIndex >= allPlayers.length - 1) {
-        alert("All players have been processed!");
-        return;
-    }
+// function nextPlayer() {
+//     if (currentPlayerIndex >= allPlayers.length - 1) {
+//         alert("All players have been processed!");
+//         return;
+//     }
     
-    currentPlayerIndex++;
-    bidHistory = [];  // ✅ Reset bidding history for new player
-    displayPlayer();
-    updateBidHistory();  // ✅ Clear the history box
-}
+//     currentPlayerIndex++;
+//     bidHistory = [];  // ✅ Reset bidding history for new player
+//     displayPlayer();
+//     updateBidHistory();  // ✅ Clear the history box
+// }
 
 
 function displayPlayer() {
@@ -126,9 +126,14 @@ function updateBidHistory() {
 }
 
 
-document.getElementById('next-player-btn').addEventListener('click', nextPlayer);
+// document.getElementById('next-player-btn').addEventListener('click', nextPlayer);
 document.getElementById('sell-player-btn').addEventListener('click', sellPlayer);
 
 updateLeaderboard();
 createTeamCards();
 displayPlayer();
+
+var x = 1;
+function redirectURL(){
+    window.location.href = 'http://localhost/data-viz-1/player?name='+ x;
+}

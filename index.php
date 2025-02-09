@@ -11,18 +11,20 @@
         <!-- Left: Leaderboard -->
         <div class="leaderboard">
             <h2>🏆 Leaderboard</h2>
-            <div id="leaderboard-list"></div>
-            <div class="bidding-history-container">
+            <div id="leaderboard-list">
+                <?php include 'Backend/leaderboard.php'; ?>
+            </div>
+            <!-- <div class="bidding-history-container">
                 <h2>📜 Bidding History</h2>
                 <div id="bidding-history" class="bidding-history-box"></div>
-            </div>
+            </div> -->
         </div>
        
         
 
         <!-- Center: Current Player Panel -->
         <div class="current-player">
-            <div class="player-image-container">
+            <!-- <div class="player-image-container">
                 <img id="player-image" src="default-player.png" alt="Player">
             </div>
             <h2 id="player-name">Player Name</h2>
@@ -35,12 +37,12 @@
                 <div class="stat-item"><span>Average:</span> <span id="player-average">0.00</span></div>
                 <div class="stat-item"><span>Strike Rate:</span> <span id="player-strike-rate">0.0</span></div>
                 <div class="stat-item"><span>Matches:</span> <span id="player-matches">0</span></div>
-            </div>
-            <button id="sell-player-btn">SOLD</button>
-<button id="next-player-btn">Next Player</button>
+            </div> -->
+            
+            <?php include 'Backend/player_details.php'; ?>
 
-
-
+            <!-- <button id="sell-player-btn">SOLD</button> -->
+            <button id="next-player-btn" onclick="redirectURL()">Next Player</button>
 
         </div>
 
