@@ -21,7 +21,7 @@
         </div>
        
         
-
+  
         <!-- Center: Current Player Panel -->
         <div class="current-player">
             <!-- <div class="player-image-container">
