@@ -28,14 +28,11 @@
             <div id="leaderboard-list">
                 <?php include 'Backend/leaderboard.php'; ?>
             </div>
-            <!-- <div class="bidding-history-container">
-                <h2>📜 Bidding History</h2>
-                <div id="bidding-history" class="bidding-history-box"></div>
-            </div> -->
+            <!--  -->
         </div>
        
         
-
+  
         <!-- Center: Current Player Panel -->
         <div class="current-player">
             <!-- <div class="player-image-container">
@@ -58,10 +55,14 @@
         </div>
 
         <!-- Right: Team List -->
-        <div class="team-list">
+       <!-- <div class="team-list">
             <h2>Team Squads</h2>
             <div id="team-list-container"></div>
-        </div>
+        </div>-->
+        <div class="bidding-history-container">
+                <h2>📜 Bidding History</h2>
+                <div id="bidding-history" class="bidding-history-box"></div>
+            </div>
     </div>
 
     <script src="script.js"></script>
