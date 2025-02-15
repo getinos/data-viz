@@ -10,7 +10,7 @@ body {
 
 .container {
     display: grid;
-    grid-template-columns: 1fr 1fr ;
+    grid-template-columns: 1fr 1fr;
     gap: 20px;
     padding: 5vh;
     border-radius: 6px;
@@ -19,12 +19,14 @@ body {
     width: 60%;
     height: auto;
 }
+
 .team-list {
     width: 80%;
     padding: 20px;
     background-color: rgba(81, 81, 83, 0.23);
     border-radius: 6px;
 }
+
 .details {
     width: 80%;
     padding: 20px;
@@ -54,6 +56,7 @@ li {
     font-weight: bold;
     color: yellow;
 }
+
 .details {
     background: rgba(81, 81, 83, 0.23);
     color: white;
@@ -65,7 +68,7 @@ li {
 
 .team-details {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two columns for team details */
+    grid-template-columns: repeat(2, 1fr);
     gap: 10px;
     width: 80%;
     padding: 20px;
@@ -89,16 +92,16 @@ li {
 
 .player-slots {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Four per row */
-    gap: 4px; /* Reduced gap */
-    justify-items: center; /* Centers items within grid cells */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+    justify-items: center;
     align-items: center;
     margin-top: 10px;
-    position: relative; 
+    position: relative;
 }
 
 .circle {
-    width: 22px; /* Slightly increased for better visibility */
+    width: 22px;
     height: 22px;
     border-radius: 50%;
     border: 1px solid white;
@@ -106,27 +109,28 @@ li {
     background-repeat: no-repeat;
     background-position: center;
 }
+
 .circle:last-child {
-    grid-column: 2 / span 2; /* Centers last item */
-    justify-self: center; /* Ensures perfect centering */
+    grid-column: 2 / span 2;
+    justify-self: center;
 }
 
 .filled {
     background: yellow;
 }
 
-
 .batsman {
-    background-image: url('./halmet.png'); 
+    background-image: url('./halmet.png');
 }
 
 .bowler {
-    background-image: url('./Bowler.png'); 
+    background-image: url('./Bowler.png');
 }
 
 .wicketkeeper {
-    background-image: url('./Wicket\ Keeper\ Gloves.png'); 
+    background-image: url('./Wicket\ Keeper\ Gloves.png');
 }
-.allrounder{
-    background-image: url('./Screenshot\ 2025-02-15\ 144839.png'); 
+
+.allrounder {
+    background-image: url('./Screenshot\ 2025-02-15\ 144839.png');
 }
