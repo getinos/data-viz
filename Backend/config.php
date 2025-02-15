@@ -13,6 +13,6 @@
     } 
     
     catch(PDOException $e) {
-        echo "Connection failed: " . $e->getMessage();
+        die("Database connection failed: " . $e->getMessage());
     }
 ?>

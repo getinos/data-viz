@@ -133,7 +133,24 @@ updateLeaderboard();
 createTeamCards();
 displayPlayer();
 
-var x = 1;
-function redirectURL(){
-    window.location.href = 'http://localhost/data-viz-1/player?name='+ x;
+
+function loadNextRecord() {
+    let currentId = new URLSearchParams(window.location.search).get("id") || 0;
+
+    fetch("Backend/get_next_player.php?id=" + currentId)
+        .then(response => response.json())
+        .then(data => {
+            if (data.error) {
+                alert(data.error);
+            } else {
+                // Update content
+                console.log(data);
+                document.getElementById("record-name").innerText = data.player_name;
+                document.getElementById("record-description").innerText = data.player_specialism;
+
+                // Update URL without reloading
+                window.history.pushState({}, "", "?id=" + data.player_id);
+            }
+        })
+        .catch(error => console.error("Error fetching next record:", error));
 }
