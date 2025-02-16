@@ -21,8 +21,6 @@ body {
     background: #1a1a1a;
     padding: 20px;
     border-radius: 10px;
-    margin-bottom: 40px; 
-
 }
 
 .team-rank {
@@ -141,16 +139,13 @@ body {
     font-size: 1.1em;
     color: #ffcc00; /* Gold color for visibility */
     font-weight: bold;
-   
-
 }
 
 .bidding-history-container {
     background: #1a1a1a;
     padding: 20px;
     border-radius: 10px;
-    margin-top: 20px;
-    margin-bottom: 40px; 
+   
 }
 
 .bidding-history-box {
