@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 09, 2025 at 05:18 PM
+-- Generation Time: Feb 16, 2025 at 04:53 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -50,11 +50,11 @@ CREATE TABLE `player_details` (
 --
 
 INSERT INTO `player_details` (`player_id`, `player_img`, `player_name`, `player_price`, `player_status`, `player_specialism`, `player_points`, `player_ipl_mat`, `player_wkts`, `player_4s`, `player_6s`, `player_catches`, `player_run_outs`, `player_stumpings`, `updated`) VALUES
-(1, '', 'Sunil Narine', 600, 'Capped', 'ALL-ROUNDER', 450, 15, 17, 127, 50, 33, 8, 3, '0000-00-00 00:00:00'),
-(2, '', 'Virat Kohli', 1500, 'Capped', 'BATTER', 316, 15, 0, 0, 62, 38, 8, 8, '0000-00-00 00:00:00'),
-(3, '', 'Travis Head', 200, 'Capped', 'BATTER', 274, 15, 0, 2, 64, 32, 0, 0, '0000-00-00 00:00:00'),
-(4, '', 'Abhishek Sharma', 650, 'Capped', 'ALL-ROUNDER', 274, 16, 2, 12, 36, 42, 7, 0, '0000-00-00 00:00:00'),
-(5, '', 'Pat Cummins', 200, 'Capped', 'ALL-ROUNDER', 259, 16, 18, 125, 9, 8, 7, 3, '0000-00-00 00:00:00'),
+(1, 'sn.png', 'Sunil Narine', 600, 'Capped', 'ALL-ROUNDER', 450, 15, 17, 127, 50, 33, 8, 3, '0000-00-00 00:00:00'),
+(2, 'vk.png', 'Virat Kohli', 1500, 'Capped', 'BATTER', 316, 15, 0, 0, 62, 38, 8, 8, '0000-00-00 00:00:00'),
+(3, 'th.png', 'Travis Head', 200, 'Capped', 'BATTER', 274, 15, 0, 2, 64, 32, 0, 0, '0000-00-00 00:00:00'),
+(4, 'as.png', 'Abhishek Sharma', 650, 'Capped', 'ALL-ROUNDER', 274, 16, 2, 12, 36, 42, 7, 0, '0000-00-00 00:00:00'),
+(5, 'images.jpg', 'Pat Cummins', 200, 'Capped', 'ALL-ROUNDER', 259, 16, 18, 125, 9, 8, 7, 3, '0000-00-00 00:00:00'),
 (6, '', 'Andre Russell', 1600, 'Capped', 'ALL-ROUNDER', 250, 15, 19, 68, 20, 16, 3, 2, '0000-00-00 00:00:00'),
 (7, '', 'Phil Salt', 200, 'Capped', 'WICKETKEEPER', 245, 12, 0, 0, 50, 24, 12, 6, '0000-00-00 00:00:00'),
 (8, '', 'Sam Curran', 200, 'Capped', 'BATTER', 239, 13, 16, 84, 24, 6, 7, 0, '0000-00-00 00:00:00'),
