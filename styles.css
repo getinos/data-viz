@@ -37,28 +37,69 @@ body {
     background: #1a1a1a;
     border-radius: 15px;
     padding: 30px;
-    position: relative;
     text-align: center;
+    position: relative;
+    margin-bottom: 40px;
 }
 
 .player-image-container {
-    width: 300px;
-    height: 300px;
-    margin: 0 auto;
-    border-radius: 50%;
+    position: relative;
+    width: 100%;
+    max-width: 340px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
-    border: 4px solid #4CAF50;
+    border-radius: 5%;
     box-shadow: 0 0 20px rgba(76, 175, 80, 0.3);
+}
+
+.player-image-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(./images/bg.gif) center / cover no-repeat;
+    filter: hue-rotate(262deg) brightness(30%);
+    z-index: 1;
 }
 
 .player-image-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    position: relative;
+    z-index: 2;
+}
+
+.top{
+    margin-top: 20px !important;
 }
 
 .player-stats {
-    margin-top: 20px;
+    width: 100%;
+    display: flex;
+}
+
+.bat-stats, .bowl-stats, .field-stats {
+    width: 32%;
+    margin-right: 2%;
+}
+
+.bat-stats:last-child, .bowl-stats:last-child, .field-stats:last-child {
+    margin-right: 0;
+}
+
+@media (max-width: 768px) {
+    .bat-stats, .bowl-stats, .field-stats {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
 }
 
 .stat-item {
@@ -69,6 +110,77 @@ body {
     border-radius: 8px;
     margin: 10px 0;
 }
+
+.diagonal-bar {
+    width: 370px;
+    height: 50px;
+    background: linear-gradient(135deg, #ff7b00, #ff3e00);
+    clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 3px 3px 10px rgba(255, 255, 255, 0.2);
+    position: absolute;
+    top: 8%;
+    left: 45%;
+    z-index: 0;
+    padding: 0 15px;
+    overflow: hidden;
+    text-align: center;   
+}
+
+.diagonal-bar h2 {
+    color: #1a1a1a;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: clamp(10px, 5vw, 23px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+.player-info {
+    top: 16%;
+    position: absolute;
+    left: 57%;
+    font-size: clamp(16px, 2vw, 22px);
+}
+
+.next-bid-button {
+    background: linear-gradient(200deg, #ff3e00, #ce9702); 
+    color: #1a1a1a;
+    padding: 15px 40px;
+    font-size: 20px;
+    margin-top: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0px 0px 15px rgba(161, 42, 5, 0.7);
+    animation: glow 1.5s infinite alternate ease-in-out, float 2s infinite ease-in-out;
+}
+
+/* Glowing background animation */
+@keyframes glow {
+    0% {
+        box-shadow: 0px 0px 10px rgba(255, 59, 0, 0.5), 
+                    0px 0px 30px rgba(255, 187, 0, 0.3);
+    }
+    100% {
+        box-shadow: 0px 0px 20px rgba(255, 59, 0, 0.8), 
+                    0px 0px 40px rgba(255, 187, 0, 0.7);
+    }
+}
+
+/* Hover effect */
+.next-bid-button:hover {
+    transform: scale(1.1);
+    transition: 0.2s ease-in-out;
+}
+
 
 /* Team List Section */
 .team-list {
@@ -135,18 +247,24 @@ body {
     font-size: 1rem;
 }
 
+.current-bid {
+    padding-top: 5%;
+}
+
 .current-bidder {
     margin-top: 10px;
-    font-size: 1.1em;
+    font-size: 1.5em;
     color: #ffcc00; /* Gold color for visibility */
     font-weight: bold;
+    padding-top: 10%;
 }
 
 .bidding-history-container {
     background: #1a1a1a;
     padding: 20px;
     border-radius: 10px;
-   
+    /* margin-top: 20px; */
+    margin-bottom: 40px; 
 }
 
 .bidding-history-box {
