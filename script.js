@@ -143,10 +143,22 @@ function loadNextRecord() {
             if (data.error) {
                 alert(data.error);
             } else {
+
                 // Update content
-                console.log(data);
-                document.getElementById("record-name").innerText = data.player_name;
-                document.getElementById("record-description").innerText = data.player_specialism;
+                $path = "images/";
+                document.getElementById("player-image").src = $path + data.player_img;
+
+                document.getElementById("player-name").innerText = data.player_name;
+                document.getElementById("player-role").innerText = data.player_specialism;
+                document.getElementById("current-bid").innerText = "Current Bid: ₹" + data.player_price + " Lakh";
+                document.getElementById("player-4").innerText = data.player_4s;
+                document.getElementById("player-6").innerText = data.player_6s;
+                document.getElementById("player-wickets").innerText = data.player_wkts;
+                document.getElementById("player-matches").innerText = data.player_ipl_mat;
+                document.getElementById("player-status").innerText = data.player_status;
+                document.getElementById("player-catches").innerText = data.player_catches;
+                document.getElementById("player-run-outs").innerText = data.player_run_outs;
+                document.getElementById("player-stump").innerText = data.player_stumpings;
 
                 // Update URL without reloading
                 window.history.pushState({}, "", "?id=" + data.player_id);
@@ -154,3 +166,5 @@ function loadNextRecord() {
         })
         .catch(error => console.error("Error fetching next record:", error));
 }
+
+    
