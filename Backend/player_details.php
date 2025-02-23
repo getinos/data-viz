@@ -51,7 +51,7 @@
             <div class='player-info'>
                 <p class='role' id='player-role'> $role </p>
                 <p class='role' id='player-status'> $status </p>
-                <div class='current-bid' id='current-bid'> Current Bid: ₹ $price Lakh </div>
+                
                 <div class='current-bidder' id='current-bidder'><strong>Bidder: </strong> None </div>
             </div>";
         
@@ -68,13 +68,14 @@
                 <div class='bowl-stats'>
                     <h3>Bowling Stats</h3>
                     <div class='stat-item'><span>Wickets:</span> <span id='player-wickets'> $wkts </span></div>
+                                      <div class='current-bid' id='current-bid'> Current Bid: ₹ $price Lakh </div>
+
                 </div>
 
                 <div class='field-stats'>
                     <h3>Fielding Stats</h3>
                     <div class='stat-item'><span>Catches:</span> <span id='player-catches'> $catches </span></div>
                     <div class='stat-item'><span>Run Outs:</span> <span id='player-run-outs'> $run_outs </span></div>
-                    <div class='stat-item'><span>Stumpings:</span> <span id='player-stump'> $stump </span></div>
                 </div>
                                                                      
             </div>";
