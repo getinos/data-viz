@@ -38,28 +38,28 @@ let bidHistory = [];
 //         `).join('');
 // }
 
-function createTeamCards() {
-    const teamListContainer = document.getElementById('team-list-container');
-    teamListContainer.innerHTML = teams.map(team => `
-        <div class="team-card">
-            <div class="team-header">
-                <img src="${team.logo}" alt="${team.name} Logo" class="team-logo">
-                <h3 class="team-name">${team.name}</h3>
-                <span class="team-budget">💰 ₹${team.budget} Cr</span>
-            </div>
-            <div class="players-scroll">
-                ${team.players.length === 0 ? "<p>No players yet</p>" : team.players.map(player => `
-                    <div class="player-card">
-                        <img src="${player.image}" alt="${player.name}" class="player-img">
-                        <div>${player.name}</div>
-                        <div>${player.role}</div>
-                        <div>₹${player.price} Cr</div>
-                    </div>
-                `).join('')}
-            </div>
-        </div>
-    `).join('');
-}
+// function createTeamCards() {
+//     const teamListContainer = document.getElementById('team-list-container');
+//     teamListContainer.innerHTML = teams.map(team => `
+//         <div class="team-card">
+//             <div class="team-header">
+//                 <img src="${team.logo}" alt="${team.name} Logo" class="team-logo">
+//                 <h3 class="team-name">${team.name}</h3>
+//                 <span class="team-budget">💰 ₹${team.budget} Cr</span>
+//             </div>
+//             <div class="players-scroll">
+//                 ${team.players.length === 0 ? "<p>No players yet</p>" : team.players.map(player => `
+//                     <div class="player-card">
+//                         <img src="${player.image}" alt="${player.name}" class="player-img">
+//                         <div>${player.name}</div>
+//                         <div>${player.role}</div>
+//                         <div>₹${player.price} Cr</div>
+//                     </div>
+//                 `).join('')}
+//             </div>
+//         </div>
+//     `).join('');
+// }
 
 // function nextPlayer() {
 //     if (currentPlayerIndex >= allPlayers.length - 1) {
@@ -82,11 +82,11 @@ function displayPlayer() {
 
     document.getElementById('player-name').textContent = player.name;
     document.getElementById('player-role').textContent = player.role;
-    document.getElementById('current-bid').textContent = `Current Bid: ₹${player.price} Cr`;
+    // document.getElementById('current-bid').textContent = `Current Bid: ₹${player.price} Cr`;
     document.getElementById('current-bidder').innerHTML = currentBidder ? `<strong>Bidder:</strong> ${currentBidder.name} 🏏` : `<strong>Bidder:</strong> None`;
     document.getElementById('player-image').src = player.image;
     
-    document.getElementById('sell-player-btn').disabled = false;
+    // document.getElementById('sell-player-btn').disabled = false;
     updateBidHistory();  // ✅ Refresh bid history display
 }
 
@@ -111,8 +111,8 @@ function sellPlayer() {
     currentBidder.points += player.price * 10;
     currentBidder.budget -= player.price;
 
-    createTeamCards();
-    updateLeaderboard();
+    // createTeamCards();
+    // updateLeaderboard();
     updateBidHistory();  // ✅ Update bidding history
 
     document.getElementById('sell-player-btn').disabled = true;
@@ -127,11 +127,11 @@ function updateBidHistory() {
 
 
 // document.getElementById('next-player-btn').addEventListener('click', nextPlayer);
-document.getElementById('sell-player-btn').addEventListener('click', sellPlayer);
+// document.getElementById('sell-player-btn').addEventListener('click', sellPlayer);
 
-updateLeaderboard();
-createTeamCards();
-displayPlayer();
+// updateLeaderboard();
+// createTeamCards();
+// displayPlayer();
 
 
 function loadNextRecord() {
@@ -145,12 +145,12 @@ function loadNextRecord() {
             } else {
 
                 // Update content
-                $path = "images/";
+                $path = "./../images/";
                 document.getElementById("player-image").src = $path + data.player_img;
 
                 document.getElementById("player-name").innerText = data.player_name;
                 document.getElementById("player-role").innerText = data.player_specialism;
-                document.getElementById("current-bid").innerText = "Current Bid: ₹" + data.player_price + " Lakh";
+                // document.getElementById("current-bid").innerText = "Current Bid: ₹" + data.player_price + " Lakh";
                 document.getElementById("player-4").innerText = data.player_4s;
                 document.getElementById("player-6").innerText = data.player_6s;
                 document.getElementById("player-wickets").innerText = data.player_wkts;
@@ -158,7 +158,7 @@ function loadNextRecord() {
                 document.getElementById("player-status").innerText = data.player_status;
                 document.getElementById("player-catches").innerText = data.player_catches;
                 document.getElementById("player-run-outs").innerText = data.player_run_outs;
-                document.getElementById("player-stump").innerText = data.player_stumpings;
+                // document.getElementById("player-stump").innerText = data.player_stumpings;
 
                 // Update URL without reloading
                 window.history.pushState({}, "", "?id=" + data.player_id);

@@ -1,5 +1,5 @@
 <?php
-include 'config.php';
+include './../DB/config.php';
 
 $stmt = $conn->prepare("SELECT team_id, team_name FROM team ORDER BY team_id DESC");
 $stmt->execute();
@@ -10,9 +10,9 @@ if (is_array($result)) {
     $totalTeams = count($result);
     foreach ($result as $row) {
         // Calculate brightness based on rank (higher rank = darker)
-        $brightness = 100 - (($totalTeams /$rank ) * 50); // Adjust brightness scale
+        $brightness = ($totalTeams / $rank)/4; // Adjust brightness scale
 
-        echo "<div class='team-rank' style='background-color: hsl(220, 50%, {$brightness}%);'>
+        echo "<div class='team-rank' style='background-color: hsla(348.23deg, 100%, 50%, {$brightness});'>
                 <span>{$row['team_name']}</span>
                 <span>{$row['team_id']} pts</span>
               </div>";

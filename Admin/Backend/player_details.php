@@ -1,6 +1,6 @@
 
 <?php
-
+    
     $currentId = isset($_GET['id']) ? intval($_GET['id']) : 0;
     
     // Fetch the current record
@@ -27,7 +27,7 @@
         
         // <button onclick='loadNextRecord()'>Next Record</button>";
         
-        $img_path = "images/";
+        $img_path = "../images/";
         $img = htmlspecialchars($record['player_img']);
         $name = htmlspecialchars($record['player_name']);
         $role = htmlspecialchars($record['player_specialism']);
@@ -68,7 +68,7 @@
                 <div class='bowl-stats'>
                     <h3>Bowling Stats</h3>
                     <div class='stat-item'><span>Wickets:</span> <span id='player-wickets'> $wkts </span></div>
-                                      <div class='current-bid' id='current-bid'> Current Bid: ₹ $price Lakh </div>
+                    <!--div class='current-bid' id='current-bid'> Current Bid: ₹ $price Lakh </div-->
 
                 </div>
 
