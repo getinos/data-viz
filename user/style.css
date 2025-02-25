@@ -1,5 +1,6 @@
 body{
     background : linear-gradient(90deg, #F9F9F9 ,#1B2155, #005DAB,#0075D2,#002F85);
+    overflow: hidden;
 }
 
 .container {
@@ -16,21 +17,22 @@ body{
 }
 
 .player-card {
-    width: 100%; 
-    
-    background: white;
+    width: 100%;
+    /* background: white; */
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     height: 54vh;
-    display: flex;
+    display: flex
+;
     flex-direction: column;
 }
 .banner {
     position: relative;
     height: 37vh;
-    background: #005DAB;
-    display: flex;
+    /* background: #005DAB; */
+    display: flex
+;
     align-items: center;
     justify-content: center;
     color: white;
@@ -42,18 +44,17 @@ body{
     /* bottom: -50px; */
     left: 50%;
     transform: translateX(-50%);
-    /* width: 100px; */
-    height: 21rem;
-    /* border-radius: 50%; */
-    /* border: 4px solid white; */
-    /* background: lightgray;*/
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 4px solid #005dab;
 }
 .player-stats{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columns */
-   
-    gap: 10px;
-    padding: 20px;
+    display: grid
+    ;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 14px;
+        padding: 20px;
     
 }
 .stats {
@@ -79,7 +80,7 @@ body{
     font-size: 12px;
 }
 .budget-section{
-    background: rgba(128, 128, 128, 0.464);
+  
     width: 100%;
     height: 30vh;
 }
@@ -102,13 +103,14 @@ body{
 .card {
     display: flex;
     width: 812.96px;
-    height: 360px;
+    height: 299px;
     padding: 25px;
     background: linear-gradient(135deg, #e3f2fd, #bbdefb);
     box-shadow: 0 8px 12px rgba(43, 124, 218, 0.2);
     border-radius: 15px;
     transition: 0.3s;
     position: relative;
+    margin-top: 20px;
 }
 
 .card:hover {
