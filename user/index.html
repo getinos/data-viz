@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./user.css">
+</head>
+<body>
+    <div class="container">
+        <div class="team-details"></div>
+        <div class="hero-section">
+           
+                <div class="player-card">
+                    <div class="banner">Player Name 
+                        <img src="./vk.png" alt="Player Image" class="player-img">
+                    </div>
+                   
+                    <div class="player-stats">
+                        <div class="stat"><h3>100</h3><p>Matches</p></div>
+                        <div class="stat"><h3>3500</h3><p>Runs</p></div>
+                        <div class="stat"><h3>120</h3><p>Wickets</p></div>
+                        <div class="stat"><h3>150</h3><p>Strike Rate</p></div>
+                        <div class="stat"><h3>45.2</h3><p>Average</p></div>
+                        <div class="stat"><h3>200</h3><p>Sixes</p></div>
+                        <div class="stat"><h3>350</h3><p>Fours</p></div>
+                        <div class="stat"><h3>75</h3><p>50s</p></div>
+                        <div class="stat"><h3>10</h3><p>100s</p></div>
+                        <div class="stat"><h3>80</h3><p>Not Outs</p></div>
+                        <div class="stat"><h3>90</h3><p>Highest Score</p></div>
+                        <div class="stat"><h3>2</h3><p>Hat-tricks</p></div>
+                    </div>
+              
+               
+            </div>
+            <div class="budget-section">
+                
+            
+                <div class="card">
+                    <div class="left">
+                        <div class="current-price">
+                            <p>Current Price: ₹200000</p>
+                        </div>
+                        <p class="price-decrease">-₹50000</p>
+                        <button onclick="placeBid()">Current Deduction</button>
+                    </div>
+                    <div class="right">
+                        <p>Remaining Amount:</p>
+                        <p class="amount" id="remainingAmount">₹100000</p>
+                        <button onclick="checkBalance()">Check Balance</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bidding-history">  
+            <div class="bidding-history-container" >  
+                <div class="timer-container">                
+                 <h2>📜 Bidding History</h2>  
+                 <div class='stat-item'><span>TIME:</span> <span id='player-wickets'>90s</span>
+                 </div>
+                 </div>
+ 
+                 <div id="bidding-history" class="bidding-history-box">
+                                     <p>balboli</p>
+                 </div>
+                 
+             </div>
+        </div>
+    </div>
+</body>
+</html>
