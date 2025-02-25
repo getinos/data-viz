@@ -1,0 +1,197 @@
+body{
+    background : linear-gradient(90deg, #F9F9F9 ,#1B2155, #005DAB,#0075D2,#002F85);
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 0.8fr 2fr 0.9fr;
+    height: 100vh;
+    gap: 20px;
+    padding: 20px;
+    
+}
+.hero-section{
+    display: flex;
+    flex-direction: column;
+}
+
+.player-card {
+    width: 100%; 
+    
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+}
+.banner {
+    position: relative;
+    height: 37vh;
+    background: #005DAB;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+.player-img {
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 4px solid white;
+    background: lightgray;
+}
+.player-stats{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+   
+    gap: 10px;
+    padding: 20px;
+    
+}
+.stats {
+    padding: 60px 20px 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+.stat {
+    background: #f0f0f0;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 14px;
+}
+.stat h3 {
+    color: #005DAB;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+.stat p {
+    color: #333;
+    font-size: 12px;
+}
+.budget-section{
+    background: rgba(128, 128, 128, 0.464);
+    width: 100%;
+    height: 30vh;
+}
+
+.current-price {
+    border: 2px solid #1b2155;
+    background: #ffffff;
+    width: 15rem;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: larger;
+    color: #1b2155;
+    margin-bottom: 15px;
+    border-radius: 8px;
+}
+
+.card {
+    display: flex;
+    width: 812.96px;
+    height: 360px;
+    padding: 25px;
+    background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+    box-shadow: 0 8px 12px rgba(43, 124, 218, 0.2);
+    border-radius: 15px;
+    transition: 0.3s;
+    position: relative;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.left, .right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+}
+
+.right {
+    position: relative;
+    padding-left: 20px;
+}
+
+/* Custom shorter left border */
+.right::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 20%;
+    height: 60%;
+    width: 3px;
+    background-color: #2196F3;
+    border-radius: 2px;
+}
+
+button {
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(135deg, #0075d2, #005dab);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    outline: none;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #005dab, #004494);
+    box-shadow: 0 6px 10px rgba(15, 116, 231, 0.2);
+}
+
+.amount {
+    font-size: 28px;
+    font-weight: bold;
+    color: #1b5e20;
+}
+
+.price-decrease {
+    font-size: 22px;
+    font-weight: bold;
+    color: rgb(190, 14, 14);
+    margin-bottom: 15px;
+    background: #ffebee;
+    padding: 8px 15px;
+    border-radius: 8px;
+}
+
+
+.bidding-history-container {
+    background: #0000005c;
+    border: 1PX SOLID rgba(255, 255, 255, 0.393);
+    box-shadow: 0 0 20px rgba(76, 175, 79, 0.304);
+    padding: 20px;
+    border-radius: 10px;
+    /* margin-top: 20px; */
+    margin-bottom: 40px; 
+    height: 52.6rem;
+}
+
+.bidding-history-box {
+    max-height: 150px;
+    overflow-y: auto;
+    background: #252525;
+    padding: 10px;
+    border-radius: 8px;
+}
