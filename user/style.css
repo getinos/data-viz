@@ -1,8 +1,17 @@
 body{
     background : linear-gradient(90deg, #F9F9F9 ,#1B2155, #005DAB,#0075D2,#002F85);
     overflow: hidden;
+    background-size: 300% 100%;  /* Make it wider to create the motion effect */
+    animation: moveGradient 10s linear infinite;
 }
-
+@keyframes moveGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
 .container {
     display: grid;
     grid-template-columns: 0.8fr 2fr 0.9fr;
@@ -22,10 +31,12 @@ body{
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 20px rgba(76, 175, 79, 0.304);
     height: 54vh;
     display: flex
 ;
     flex-direction: column;
+    border: 1PX SOLID rgba(255, 255, 255, 0.393);
 }
 .banner {
     position: relative;
@@ -47,7 +58,7 @@ body{
     width: 300px;
     height: 300px;
     border-radius: 50%;
-    border: 4px solid #005dab;
+    border: 4px solid #c3e4fa;
 }
 .player-stats{
     display: grid
@@ -187,7 +198,7 @@ button:hover {
     border-radius: 10px;
     /* margin-top: 20px; */
     margin-bottom: 40px; 
-    height: 52.6rem;
+    height: 90vh;
 }
 
 .bidding-history-box {
@@ -200,4 +211,6 @@ button:hover {
 
 .team-details{
     background: white;
+    border-radius: 5px;
+    height: 95vh;
 }
