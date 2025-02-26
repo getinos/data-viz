@@ -18,7 +18,7 @@ body{
     height: 100vh;
     gap: 20px;
     padding: 20px;
-    
+   
 }
 .hero-section{
     display: flex;
@@ -33,10 +33,10 @@ body{
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     box-shadow: 0 0 20px rgba(76, 175, 79, 0.304);
     height: 54vh;
-    display: flex
-;
+    display: flex;
     flex-direction: column;
     border: 1PX SOLID rgba(255, 255, 255, 0.393);
+    margin-top: 33px;
 }
 .banner {
     position: relative;
@@ -66,7 +66,7 @@ body{
         grid-template-columns: repeat(4, 1fr);
         gap: 14px;
         padding: 20px;
-    
+   
 }
 .stats {
     padding: 60px 20px 20px;
@@ -91,7 +91,7 @@ body{
     font-size: 12px;
 }
 .budget-section{
-  
+ 
     width: 100%;
     height: 30vh;
 }
@@ -114,7 +114,7 @@ body{
 .card {
     display: flex;
     width: 812.96px;
-    height: 299px;
+    height: 250px;
     padding: 25px;
     background: linear-gradient(135deg, #e3f2fd, #bbdefb);
     box-shadow: 0 8px 12px rgba(43, 124, 218, 0.2);
@@ -122,10 +122,7 @@ body{
     transition: 0.3s;
     position: relative;
     margin-top: 20px;
-}
 
-.card:hover {
-    transform: scale(1.05);
 }
 
 .left, .right {
@@ -182,7 +179,7 @@ button:hover {
 .price-decrease {
     font-size: 22px;
     font-weight: bold;
-    color: rgb(190, 14, 14);
+    color: rgb(255, 255, 255);
     margin-bottom: 15px;
     background: #ffebee;
     padding: 8px 15px;
@@ -197,20 +194,137 @@ button:hover {
     padding: 20px;
     border-radius: 10px;
     /* margin-top: 20px; */
-    margin-bottom: 40px; 
-    height: 90vh;
+    margin-bottom: 40px;
+    height: 89vh;
+    margin-top: 4px;
 }
-
 .bidding-history-box {
     max-height: 150px;
     overflow-y: auto;
     background:#c6c9ce3d;
     padding: 10px;
     border-radius: 8px;
+
 }
 
 .team-details{
     background: white;
     border-radius: 5px;
-    height: 95vh;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #c9bebeec;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 29pz;
 }
+
+.bidder-info {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.bidder-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.bidder-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.role-tracker {
+    display: grid;
+    grid-template-columns: repeat(3, 0.8fr);
+    gap: 5px;
+    width: 100%;
+    margin-top:10px;
+}
+
+.role {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #3693d747;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.role img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 5px;
+}
+
+.team-details {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    height: 88vh;
+    margin-top: 9px;
+}
+
+.bidder-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.bidder-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.player-category {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background: white;
+    /* padding: 2px; */
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    /* height: 26vh; */
+    width: 29vh;
+}
+
+.category-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.slots {
+    display: flex;
+    gap: 10px;
+}
+
+.slot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #ddd; /* Default empty slot */
+    border: 2px solid #bbb;
+}
+
+/*.stat-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    background: #1c1b1b;
+    border-radius: 8px;
+    margin: 10px 0;
+}*/
+
