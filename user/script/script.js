@@ -1,32 +1,72 @@
-function placeBid(x) {
-    let currentPlayerId = new URLSearchParams(window.location.search).get("id");
-    
-    if (!currentPlayerId) {
-        alert("Player ID not found in the URL.");
-        return;
-    }
+let currentPrice = 80; // Current price in lakhs
+let amountRemaining = 10000; // Amount remaining in lakhs (₹10,000 Lakhs)
+let timeLeft = 90; // 90 seconds
+let timerInterval;
 
-    if (!x) {
-        alert("Team ID not found in the URL.");
-        return;
-    }
+// Sound Effect
+const bidSound = document.getElementById('bid-sound');
 
-    const baseUrl = "Backend/placeBid.php";
-    const url = `${baseUrl}?id=${currentPlayerId}&bid=${x}`;
-    fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            if (data.error) {
-                alert(data.error);
-            } else {
-                if (data.player_id) {
-                    window.history.pushState({}, "", "?id=" + data.player_id);
-                } else {
-                    alert("Player ID is invalid or not present.");
-                }
-            }
-        })
-        
-        // .catch(error => alert(error));
-            
+// Update Display
+function updateDisplay() {
+  document.getElementById('current-price-value').textContent = `₹${currentPrice} L`;
+  document.getElementById('amount-remaining-value').textContent = `₹${amountRemaining.toLocaleString()} L`; // Format with commas
+  updateBidButton();
 }
+
+// Update Bid Button Text
+function updateBidButton() {
+  const bidIncrement = currentPrice < 100 ? 25 : 75; // ₹25 L or ₹75 L
+  document.getElementById('bid-button').textContent = `✨ Bid Now (+₹${bidIncrement} L)`;
+}
+
+// Update Timer
+function updateTimer() {
+  const minutes = Math.floor(timeLeft / 60);
+  const seconds = timeLeft % 60;
+  document.getElementById('timer').textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+  document.getElementById('progress').style.width = `${(timeLeft / 90) * 100}%`;
+
+  if (timeLeft === 0) {
+    clearInterval(timerInterval);
+    document.getElementById('bid-button').disabled = true;
+    alert('⏰ Bidding time is over!');
+  } else {
+    timeLeft--;
+  }
+}
+
+// Handle Bidding
+function placeBid() {
+  const bidIncrement = currentPrice < 100 ? 25 : 75; // ₹25 L or ₹75 L
+
+  // Calculate total deduction
+  const totalDeduction = currentPrice < 100 ? currentPrice + bidIncrement : bidIncrement;
+
+  // Check if enough amount is remaining
+  if (amountRemaining >= totalDeduction) {
+    amountRemaining -= totalDeduction; // Deduct the total amount from the available balance
+    currentPrice += bidIncrement; // Increase price by the determined bid increment
+    updateDisplay();
+
+    // Play sound effect
+    bidSound.play();
+
+    // Trigger confetti animation
+    confetti({
+      particleCount: 100,
+      spread: 70,
+      origin: { y: 0.6 }
+    });
+  } else {
+    alert('🚫 Not enough amount remaining to place a bid!');
+  }
+}
+
+// Start Timer
+timerInterval = setInterval(updateTimer, 1000);
+
+// Add Event Listener to Bid Button
+document.getElementById('bid-button').addEventListener('click', placeBid);
+
+// Initial Display Update
+updateDisplay();
