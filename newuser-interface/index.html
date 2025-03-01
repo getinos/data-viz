@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="team-details">
+
+
+            <h2 style="margin:0%; color: #fbdb9c;">Your Team</h2>
+
+            <div class="role-tracker">
+                <!-- Batsmen -->
+                <div class="role">
+                    <img src="batsmen.png" alt="Batsman">
+                   <p class="team-role">Batsman 1</p>
+                </div>
+                <div class="role">
+                    <img src="batsmen.png" alt="Batsman">
+                    <p class="team-role">Batsman 2</p>
+                </div>
+                <div class="role">
+                    <img src="batsmen.png" alt="Batsman">
+                    <p class="team-role">Batsman 3</p>
+                </div>
+
+                <!-- Bowlers -->
+                <div class="role">
+                    <img src="batsmen.png" alt="Bowler">
+                    <p class="team-role">Bowler 1</p>
+                </div>
+                <div class="role">
+                    <img src="batsmen.png" alt="Bowler">
+                    <p class="team-role">Bowler 2</p>
+                </div>
+                <div class="role">
+                    <img src="batsmen.png" alt="Bowler">
+                    <p class="team-role">Bowler 3</p>
+                </div>
+
+                <!-- All-Rounders -->
+                <div class="role">
+                    <img src="batsmen.png" alt="All-Rounder">
+                    <p class="team-role">All-Rounder 1</p>
+                </div>
+                <div class="role">
+                    <img src="batsmen.png" alt="All-Rounder">
+                    <p class="team-role">All-Rounder 2</p>
+                </div>
+
+                <!-- Wicket Keepers -->
+                <div class="role">
+                    <img src="batsmen.png" alt="Wicket Keeper">
+                    <p class="team-role">Wicket Keeper</p>
+                </div>
+                <div class="role">
+                    <img src="batsmen.png" alt="Uncapped">
+                    <p class="team-role">Uncapped</p>
+                </div>
+                <div class="role">
+                    <img src="batsmen.png" alt="Uncapped">
+                    <p class="team-role">Uncapped</p>
+                </div>
+            </div>
+           <div>
+            <div class="player-category">
+                <p class="category-title">Batsmen</p>
+                <div class="slots">
+                    <div class="slot"></div>
+                    <div class="slot"></div>
+                    <div class="slot"></div>
+                </div>
+            </div>
+
+            <!-- Bowlers -->
+            <div class="player-category">
+                <p class="category-title">Bowlers</p>
+                <div class="slots">
+                    <div class="slot"></div>
+                    <div class="slot"></div>
+                    <div class="slot"></div>
+                </div>
+            </div>
+
+            <!-- All-Rounders -->
+            <div class="player-category">
+                <p class="category-title">All-Rounders</p>
+                <div class="slots">
+                    <div class="slot"></div>
+                    <div class="slot"></div>
+                </div>
+            </div>
+
+            <!-- Wicketkeeper -->
+            <div class="player-category">
+                <p class="category-title">Wicketkeeper</p>
+                <div class="slots">
+                    <div class="slot"></div>
+                </div>
+
+            </div>
+
+
+            <!--Overseas-->
+            <div class="player-category">
+                <p class="category-title">Overseas</p>
+                <div class="slots">
+                    <div class="slot"></div>
+                </div>
+
+            </div>
+
+        </div>
+           
+            
+        </div>
+        <div class="hero-section">
+<div class="image-div">
+            <div class="player-card">
+                <div class="banner">Player Name
+                    <img src="./vk.png" alt="Player Image" class="player-img">
+                </div>
+                <button id="player-name">
+                    <p>Virat Kohli</p>
+                </button> 
+                </div>  
+            </div>
+<div class="player-name-container">
+            </div>
+                <div class="player-stats">
+                    <div class="stat">
+                        <h3>100</h3>
+                        <p>Matches</p>
+                    </div>
+                    <div class="stat">
+                        <h3>3500</h3>
+                        <p>Runs</p>
+                    </div>
+                    <div class="stat">
+                        <h3>120</h3>
+                        <p>Wickets</p>
+                    </div>
+                    <div class="stat">
+                        <h3>150</h3>
+                        <p>Strike Rate</p>
+                    </div>
+
+                </div>
+
+
+        
+          <div class="bidding-card">
+            <div class="left-section">
+              <div class="current-price">
+                <span>💰 Current Price</span>
+                <span id="current-price-value">₹80 L</span>
+              </div>
+              <div class="amount-remaining">
+                <span>💵 Purse Remaining</span>
+                <span id="amount-remaining-value">₹10,000 L</span>
+              </div>
+            </div>
+            <div class="right-section">
+              <div class="timer">
+                <span>⏳ Time Left</span>
+                <span id="timer">01:30</span>
+                <div class="progress-bar">
+                  <div id="progress"></div>
+                </div>
+              </div>
+              <button id="bid-button">✨ Bid Now (+₹25 L)</button>
+            </div>
+          </div>
+        
+          <!-- Sound Effect for Bid Button -->
+          <audio id="bid-sound" src="bid_sound.mp3"></audio>
+        </div>
+
+        <div class="bidding-history">
+            <div class="bidding-history-container">
+                <div class="timer-container">
+                    <h2 style="color:#fbdb9c;">📜 Bidding History</h2>
+                    <!--<div class='stat-item'><span>TIME:</span> <span id='player-wickets'>90s</span>
+                    </div>-->
+                </div>
+
+                <div id="bidding-history" class="bidding-history-box">
+                    <p>balboli</p>
+                </div>
+
+            </div>
+        </div>
+    </div>  
+        <script src="script.js"></script>
+</body>
+
+</html>
