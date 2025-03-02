@@ -20,7 +20,7 @@
 
             echo "<div id='bidding-history' class='team-rank' style='background-color: hsla(220, 50%, 50%, {$brightness});'>
                     <span>{$row['team_name']}</span>
-                    <span>{$row['amount']} pts</span>
+                    <span>{$row['player_price']} pts</span>
                 </div>";
             $rank++;
         }

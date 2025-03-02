@@ -145,8 +145,8 @@ function loadNextRecord() {
             } else {
 
                 // Update content
-                $path = "./../images/";
-                document.getElementById("player-image").src = $path + data.player_img;
+                let path = "./../images/Players/";
+                document.getElementById("player-image").src = path + data.player_img;
 
                 document.getElementById("player-name").innerText = data.player_name;
                 document.getElementById("player-role").innerText = data.player_specialism;
@@ -161,7 +161,10 @@ function loadNextRecord() {
                 // document.getElementById("player-stump").innerText = data.player_stumpings;
 
                 // Update URL without reloading
-                window.history.pushState({}, "", "?id=" + data.player_id);
+                // window.history.pushState({}, "", "?id=" + data.player_id);
+
+                window.location.href = "?id=" + data.player_id;
+                
             }
         })
         .catch(error => console.error("Error fetching next record:", error));

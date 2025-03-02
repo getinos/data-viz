@@ -27,7 +27,7 @@
         
         // <button onclick='loadNextRecord()'>Next Record</button>";
         
-        $img_path = "../images/";
+        $img_path = "../images/Players/";
         $img = htmlspecialchars($record['player_img']);
         $name = htmlspecialchars($record['player_name']);
         $role = htmlspecialchars($record['player_specialism']);
