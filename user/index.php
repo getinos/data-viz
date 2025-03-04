@@ -1,3 +1,6 @@
+<?php
+    include './Backend/session_check.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,8 +19,10 @@
         <div class="team-details">
 
 
-            <h2 style="margin:0%; color: #fbdb9c;">Your Team</h2>
-
+            <h2 style="margin:0%; color: #fbdb9c;"><?php echo $_SESSION["username"]."'s team" ?></h2>
+            <?php
+               echo '<a href="./Backend/logout.php">Logout</a>';
+            ?>
             <div class="role-tracker">
                 <?php include 'Backend/player_tracker.php'; ?>
                 <!-- Batsmen -->
