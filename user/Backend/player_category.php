@@ -38,7 +38,7 @@
         } else if (htmlspecialchars($row['player_specialism']) == 'Uncapped') {
             $un_count += htmlspecialchars($row['total_count']);
         }else {
-            echo "nothing";
+            //echo "No player found";
         }
     }
 

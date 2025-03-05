@@ -1,5 +1,12 @@
 <?php
-    include './Backend/session_check.php';
+    session_start();
+
+    if(($_SESSION["team_id"] != $_GET['uid']) || ($_SESSION["team_id"] == "" && $_GET['uid'] == "" )) {
+    
+        header("location: ./Backend/login.php");
+    
+    }
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +26,7 @@
         <div class="team-details">
 
 
-            <h2 style="margin:0%; color: #fbdb9c;"><?php echo $_SESSION["username"]."'s team" ?></h2>
+            <h2 style="margin:0%; color: #fbdb9c;"><?php echo $_SESSION["team_name"]."'s team" ?></h2>
             <?php
                echo '<a href="./Backend/logout.php">Logout</a>';
             ?>

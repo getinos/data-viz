@@ -43,7 +43,7 @@ if ($result) {
                 WHERE team_id = :currentId";
     
     $a_stmt = $conn->prepare($a_sql);
-    $a_stmt->execute([':currentId' => $currentId]);
+    $a_stmt->execute([':currentId' => $team]);
     $a_result = $a_stmt->fetch();
 
     // Store the total amount

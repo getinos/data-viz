@@ -4,9 +4,9 @@ let currentPrice = text.match(/\d+/g).join("");
 
 let spentPrice = document.getElementById('total_amount');
 let amountRemaining = 10000 - spentPrice.defaultValue; // Amount remaining in lakhs (₹10,000 Lakhs)
-console.log(spentPrice.defaultValue);
+
 // let amountRemaining = 10000; // Amount remaining in lakhs (₹10,000 Lakhs)
-let timeLeft = 90; // 90 seconds
+let timeLeft = 5; // 90 seconds
 let timerInterval;
 
 
@@ -33,10 +33,16 @@ function updateTimer() {
   document.getElementById('timer').textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
   document.getElementById('progress').style.width = `${(timeLeft / 90) * 100}%`;
 
+  // Get the 'id' from the current page's URL (if available)
+  const urlParams = new URLSearchParams(window.location.search);
+  const id = urlParams.get('id');  // Extract the 'id' parameter from the URL
+  const uid = urlParams.get('uid');
+
   if (timeLeft === 0) {
     clearInterval(timerInterval);
     document.getElementById('bid-button').disabled = true;
     alert('⏰ Bidding time is over!');
+    window.location.href = "./Backend/loading.php?uid=" + uid + "&id=" + id; 
   } else {
     timeLeft--;
   }

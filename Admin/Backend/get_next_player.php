@@ -23,14 +23,27 @@
             ':player_id' => $max_record['player_id'],
             ':amount' => $max_record['max_amount']
         ]);
+
+        // ✅ 1.4 UPDATE RECORD FROM BIDDING TABLE
+        $s_query = "UPDATE player_details SET status= :id WHERE player_id = :currentId";
+        $s_stmt = $conn->prepare($s_query);
+        $s_stmt->execute([':id' => 0, ':currentId' => $currentId]);
     }
 
     // ✅ 2. SELECT Next Record from player_details
-    $stmt = $conn->prepare("SELECT * FROM player_details where player_id > :currentId ORDER BY player_id ASC Limit 1");
-    $stmt->bindParam(":currentId", $currentId, PDO::PARAM_INT);
+    $newPlayerId = $currentId+1;
+    $stmt = $conn->prepare("SELECT * FROM player_details where player_id = :playerId ORDER BY player_id ASC Limit 1");
+    $stmt->bindParam(":playerId", $newPlayerId, PDO::PARAM_INT);
     $stmt->execute();
-
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    $newId = $row['player_id'];
+
+        // ✅ 2.1 UPDATE NEXT PLAYER STATUS TO 1
+        $s_query = "UPDATE player_details SET status= :id WHERE player_id = :currentId";
+        $s_stmt = $conn->prepare($s_query);
+        $s_stmt->execute([':id' => 1, ':currentId' => $newId]);
+
 
     if ($row) {
         echo json_encode($row);
