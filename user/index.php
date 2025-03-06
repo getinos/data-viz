@@ -1,10 +1,27 @@
 <?php
+    
     session_start();
+    include './../DB/config.php';
 
     if(($_SESSION["team_id"] != $_GET['uid']) || ($_SESSION["team_id"] == "" && $_GET['uid'] == "" )) {
     
         header("location: ./Backend/login.php");
     
+    }
+
+    $currentId = isset($_GET['id']) ? intval($_GET['id']) : 0;
+
+    $sql = "SELECT player_id FROM player_details WHERE status = 1 Limit 1";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    $fetchId = $result['player_id'];
+
+    if($fetchId != $currentId) {
+        // header("location: ./Backend/loading.php?uid=".$_SESSION["team_id"]."&id=".$currentId);
+         header("location: ./index.php?uid=".$_SESSION["team_id"]."&id=".$fetchId);
+
     }
     
 ?>
@@ -14,6 +31,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="2">
     <title>Document</title>
     <link rel="stylesheet" href="./style/style.css">
 
@@ -32,120 +50,10 @@
             ?>
             <div class="role-tracker">
                 <?php include 'Backend/player_tracker.php'; ?>
-                <!-- Batsmen -->
-                <!-- <div class="role">
-                    <img src="../images/styles/batsmen.png" alt="Batsman">
-                   <p class="team-role">Batsman 1</p>
-                </div>
-                <div class="role">
-                    <img src="../images/styles/batsmen.png" alt="Batsman">
-                    <p class="team-role">Batsman 2</p>
-                </div>
-                <div class="role">
-                    <img src="../images/styles/batsmen.png" alt="Batsman">
-                    <p class="team-role">Batsman 3</p>
-                </div> -->
-
-                <!-- Bowlers -->
-                <!-- <div class="role">
-                    <img src="../images/styles/batsmen.png" alt="Batsman">
-                    <p class="team-role">Bowler 1</p>
-                </div>
-                <div class="role">
-                    <img src="../images/styles/batsmen.png" alt="Batsman">
-                    <p class="team-role">Bowler 2</p>
-                </div>
-                <div class="role">
-                    <img src="batsmen.png" alt="Bowler">
-                    <p class="team-role">Bowler 3</p>
-                </div> -->
-
-                <!-- All-Rounders -->
-                <!-- <div class="role">
-                    <img src="batsmen.png" alt="All-Rounder">
-                    <p class="team-role">All-Rounder 1</p>
-                </div>
-                <div class="role">
-                    <img src="batsmen.png" alt="All-Rounder">
-                    <p class="team-role">All-Rounder 2</p>
-                </div> -->
-
-                <!-- Wicket Keepers -->
-                <!-- <div class="role">
-                    <img src="batsmen.png" alt="Wicket Keeper">
-                    <p class="team-role">Wicket Keeper</p>
-                </div>
-                <div class="role">
-                    <img src="batsmen.png" alt="Uncapped">
-                    <p class="team-role">Uncapped</p>
-                </div>
-                <div class="role">
-                    <img src="batsmen.png" alt="Uncapped">
-                    <p class="team-role">Uncapped</p>
-                </div> -->
             </div>
             
             <div>
                 <?php include 'Backend/player_category.php'; ?>
-                <!-- Batsmen -->
-                <!-- <div class="player-category">
-                    <p class="category-title">Batsmen</p>
-                    <div class="slots">
-                        <div class="slot"></div>
-                        <div class="slot"></div>
-                        <div class="slot"></div>
-                    </div>
-                </div> -->
-
-                <!-- Bowlers -->
-                <!-- <div class="player-category">
-                    <p class="category-title">Bowlers</p>
-                    <div class="slots">
-                        <div class="slot"></div>
-                        <div class="slot"></div>
-                        <div class="slot"></div>
-                    </div>
-                </div> -->
-
-                <!-- All-Rounders -->
-                <!-- <div class="player-category">
-                    <p class="category-title">All-Rounders</p>
-                    <div class="slots">
-                        <div class="slot"></div>
-                        <div class="slot"></div>
-                    </div>
-                </div> -->
-
-                <!-- Wicketkeeper -->
-                <!-- <div class="player-category">
-                    <p class="category-title">Wicketkeeper</p>
-                    <div class="slots">
-                        <div class="slot"></div>
-                    </div>
-
-                </div> -->
-
-                <!--Overseas-->
-                <!-- <div class="player-category">
-                    <p class="category-title">Overseas</p>
-                    <div class="slots">
-                        <div class="slot"></div>
-                        <div class="slot"></div>
-                        <div class="slot"></div>
-                        <div class="slot"></div>
-                    </div>
-
-                </div> -->
-
-                <!--Uncapped-->
-                <!-- <div class="player-category">
-                    <p class="category-title">Uncapped</p>
-                    <div class="slots">
-                        <div class="slot"></div>
-                        <div class="slot"></div>
-                    </div>
-
-                </div> -->
 
             </div>  
         </div>
@@ -153,43 +61,6 @@
         <div class="hero-section">
             
             <?php include 'Backend/player_details.php'; ?>
-
-            <!-- <div class="image-div">
-                <div class="player-card">
-                    <div class="banner">Player Name
-                        <img src="../images/Players/vk.png" alt="Player Image" class="player-img">
-                    </div>
-                    
-                    <button id="player-name">
-                        <p>Virat Kohli</p>
-                    </button> 
-                </div>  
-            </div> -->
-            
-            <!-- <div class="player-name-container">
-                        </div> -->
-            <!-- <div class="player-stats">
-                <div class="stat">
-                    <h3>100</h3>
-                    <p>Matches</p>
-                </div>
-            
-                <div class="stat">
-                    <h3>3500</h3>
-                    <p>Runs</p>
-                </div>
-            
-                <div class="stat">
-                    <h3>120</h3>
-                    <p>Wickets</p>
-                </div>
-    
-                <div class="stat">
-                    <h3>150</h3>
-                    <p>Strike Rate</p>
-                </div>
-
-            </div> -->
         
           <div class="bidding-card">
             <div class="left-section">
@@ -203,13 +74,13 @@
               </div>
             </div>
             <div class="right-section">
-              <div class="timer">
+              <!-- <div class="timer">
                 <span>⏳ Time Left</span>
                 <span id="timer">01:00</span>
                 <div class="progress-bar">
                   <div id="progress"></div>
                 </div>
-              </div>
+              </div> -->
               <!-- <button id="bid-button">✨ Bid Now (+₹25 L)</button> -->
               <?php include 'Backend/bidder.php'; ?>
             </div>
@@ -231,7 +102,7 @@
                     <p>balboli</p>
                 </div> -->
 
-                <?php include 'Backend/bidding_history.php'; ?>
+                    <?php include 'Backend/bidding_history.php'; ?>
 
             </div>
         </div>

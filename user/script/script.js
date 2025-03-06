@@ -27,54 +27,28 @@ function updateBidButton() {
 }
 
 // Update Timer
-function updateTimer() {
-  const minutes = Math.floor(timeLeft / 60);
-  const seconds = timeLeft % 60;
-  document.getElementById('timer').textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-  document.getElementById('progress').style.width = `${(timeLeft / 90) * 100}%`;
+// function updateTimer() {
+//   const minutes = Math.floor(timeLeft / 60);
+//   const seconds = timeLeft % 60;
+//   document.getElementById('timer').textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+//   document.getElementById('progress').style.width = `${(timeLeft / 90) * 100}%`;
 
-  // Get the 'id' from the current page's URL (if available)
-  const urlParams = new URLSearchParams(window.location.search);
-  const id = urlParams.get('id');  // Extract the 'id' parameter from the URL
-  const uid = urlParams.get('uid');
+//   // Get the 'id' from the current page's URL (if available)
+//   const urlParams = new URLSearchParams(window.location.search);
+//   const id = urlParams.get('id');  // Extract the 'id' parameter from the URL
+//   const uid = urlParams.get('uid');
 
-  if (timeLeft === 0) {
-    clearInterval(timerInterval);
-    document.getElementById('bid-button').disabled = true;
-    alert('⏰ Bidding time is over!');
-    window.location.href = "./Backend/loading.php?uid=" + uid + "&id=" + id; 
-  } else {
-    timeLeft--;
-  }
-}
+//   if (timeLeft === 0) {
+//     clearInterval(timerInterval);
+//     document.getElementById('bid-button').disabled = true;
+//     alert('⏰ Bidding time is over!');
+//     window.location.href = "./Backend/loading.php?uid=" + uid + "&id=" + id; 
+//   } else {
+//     timeLeft--;
+//   }
+// }
 
 // Handle Bidding
-function placeBid() {
-  // const bidIncrement = currentPrice < 100 ? 25 : 75; // ₹25 L or ₹75 L
-
-  // Calculate total deduction
-  // const totalDeduction = currentPrice < 100 ? currentPrice + bidIncrement : bidIncrement;
-
-  // Check if enough amount is remaining
-  // if (amountRemaining >= totalDeduction) {
-  //   amountRemaining -= totalDeduction; // Deduct the total amount from the available balance
-  //   currentPrice += bidIncrement; // Increase price by the determined bid increment
-    // updateDisplay();
-
-    // Play sound effect
-    bidSound.play();
-
-    // Trigger confetti animation
-  // confetti({
-  //     particleCount: 100,
-  //     spread: 70,
-  //     origin: { y: 0.6 }
-  //   });
-  // } else {
-  //   alert('🚫 Not enough amount remaining to place a bid!');
-  // }
-}
-
 function placeBid(a, b, c) {
       $.ajax({
         url: 'Backend/placeBid.php',
@@ -106,13 +80,13 @@ function bid() {
     origin: { y: 0.6 }
   });
 
-  setTimeout(() => {
-    location.reload();
-}, 1500);
+//   setTimeout(() => {
+//     location.reload();
+// }, 1500);
 }
 
 // Start Timer
-timerInterval = setInterval(updateTimer, 1000);
+// timerInterval = setInterval(updateTimer, 1000);
 
 // Ensure jQuery is included
 if (typeof $ === 'undefined') {
@@ -124,3 +98,4 @@ document.getElementById('bid-button').addEventListener('click', placeBid);
 
 // Initial Display Update
 updateDisplay();
+

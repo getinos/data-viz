@@ -170,4 +170,10 @@ function loadNextRecord() {
         .catch(error => console.error("Error fetching next record:", error));
 }
 
+setInterval(function() {
+
+    $("#bidding_cycle").load("Backend/bidding_history.php"); 
+
+}, 2000); // Reload every 2 seconds
+
     

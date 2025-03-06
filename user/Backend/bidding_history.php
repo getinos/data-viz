@@ -1,6 +1,6 @@
 
 <?php
-    require_once './../DB/config.php';
+    include './../DB/config.php';
     
     $currentId = isset($_GET['id']) ? intval($_GET['id']) : 0;
     

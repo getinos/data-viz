@@ -5,13 +5,13 @@
     $currentId = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
     // ✅ 1.1 FIND MAXIMUM AMOUNT & OTHER DETAILS FROM bidding TABLE
-    $f_query = "SELECT team_id, player_id, MAX(player_price) AS max_amount FROM bidding WHERE player_id = :currentId";
+    $f_query = "SELECT team_id, player_id, player_price FROM bidding WHERE player_id = :currentId ORDER BY player_price DESC LIMIT 1";
     $f_stmt = $conn->prepare($f_query);
     $f_stmt->execute([':currentId' => $currentId]);
     $max_record = $f_stmt->fetch();
 
     // ✅ 1.2 IF NO RECORD FOUND, SKIP INSERT & MOVE AHEAD
-    if ($max_record['max_amount']) {
+    if ($max_record['player_price']) {
 
         // ✅ 1.3 UPDATE winner TABLE ONLY IF A RECORD WAS FOUND
         $u_query = "INSERT INTO winner (player_id, team_id, player_price, win_updated) VALUES (:player_id, :team_id, :amount, NOW()) 
@@ -21,7 +21,7 @@
         $u_stmt->execute([
             ':team_id' => $max_record['team_id'],
             ':player_id' => $max_record['player_id'],
-            ':amount' => $max_record['max_amount']
+            ':amount' => $max_record['player_price']
         ]);
 
         // ✅ 1.4 UPDATE RECORD FROM BIDDING TABLE
