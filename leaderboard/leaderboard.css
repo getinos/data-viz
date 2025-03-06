@@ -1,144 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #0a4a3c, #1c6e5a); 
+    color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
     height: 100vh;
-    margin: 0;
-    background: linear-gradient(90deg, #000000, #090e21e6);
 }
 
 .container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    padding: 5vh;
-    border-radius: 6px;
-    background-color: rgba(31, 31, 31, 0.23);
-    border: 2px solid rgb(88, 86, 86);
-    width: 60%;
-    height: auto;
-}
-
-.team-list {
-    width: 80%;
+    width: 100%;
+    max-width: 800px;
+    background-color: rgba(255, 255, 255, 0.067);
+    border-radius: 15px;
+    border: 1PX SOLID rgba(255, 255, 255, 0.393);
+    box-shadow: 0 0 20px rgba(76, 175, 79, 0.379);
     padding: 20px;
-    background-color: rgba(81, 81, 83, 0.23);
-    border-radius: 6px;
+    backdrop-filter: blur(10px);
+}
+
+.team-list h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #d4af37;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+.leaderboard-grid {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    gap: 20px;
+}
+
+.left-column, .right-column {
+    flex: 1;
+    display: flex;
     flex-direction: column;
+    gap: 15px;
 }
 
-
-ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-li {
+.team-card {
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    padding: 10px;
-    background: rgb(0 0 0 / 46%);
-    border-radius: 4px;
-    color: white;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.team-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.team-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #d4af37;
+}
+
+.team-name {
     font-size: 18px;
     font-weight: bold;
-    margin-bottom: 20px;
+    color: #0a4a3c;
+    flex-grow: 1;
+    margin: 0 15px;
 }
 
 .score {
+    font-size: 18px;
     font-weight: bold;
-    color: yellow;
-}
-
-.details {
-    background: rgba(81, 81, 83, 0.23);
-    color: white;
-    padding: 20px;
-    border-radius: 10px;
-    width: 80%;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.team-details {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    width: 80%;
-    padding: 20px;
-    background-color: rgb(0 0 0 / 46%);
-    border-radius: 6px;
-}
-
-.team {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 15px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 6px;
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
+    color: #d4af37;
+    background-color: #0a4a3c;
+    padding: 5px 15px;
+    border-radius: 20px;
+    min-width: 60px;
     text-align: center;
-    border: 1px solid rgb(150, 150, 150);
+}
+.back {
+    text-align: center;
+    margin-top: 20px;
 }
 
-.player-slots {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 4px;
-    justify-items: center;
-    align-items: center;
-    margin-top: 10px;
-    position: relative;
+.back a {
+    background-color: #d4af37;
+    padding: 10px 20px;
+    border-radius: 25px;
+    color: #0a4a3c;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.circle {
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    border: 1px solid white;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-.circle:last-child {
-    grid-column: 2 / span 2;
-    justify-self: center;
-}
-
-.filled {
-    background: yellow;
-}
-
-.batsman {
-    background-image: url('./halmet.png');
-}
-
-.bowler {
-    background-image: url('./Bowler.png');
-}
-
-.wicketkeeper {
-    background-image: url('./Wicket\ Keeper\ Gloves.png');
-}
-
-.allrounder {
-    background-image: url('./Screenshot\ 2025-02-15\ 144839.png');
-}
-
-#leaderboard
-{
-    justify-content: space-evenly;
-    width: 300px;
+.back a:hover {
+    background-color: #0a4a3c; 
+    color: #d4af37; 
 }
