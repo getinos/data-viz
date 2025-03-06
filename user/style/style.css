@@ -16,7 +16,7 @@ body{
 }*/
 .container {
     display: grid;
-    grid-template-columns: 0.8fr 2fr 0.9fr;
+    grid-template-columns: 0.8fr 2fr 0.9fr; 
     height: 100vh;
     gap: 20px;
     padding: 20px;
@@ -298,7 +298,7 @@ body{
     justify-content: space-between;
     align-items: center;
     background: linear-gradient(to right, rgb(226, 191, 120), rgb(224, 171, 85));
-    /* padding: 2px; */
+     padding: 2px; 
     border-radius: 8px;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
     margin-bottom: 10px;
@@ -311,11 +311,13 @@ body{
     font-size: 16px;
     font-weight: bold;
     color: #333;
+    margin-right: 10px;
 }
 
 .slots {
     display: flex;
-    gap: 10px;
+    gap: 2px;
+    justify-content: space-between;
 }
 
 .slot {
@@ -324,6 +326,7 @@ body{
     border-radius: 50%;
     background: #153832; /* Default empty slot */
     border: 2px solid #153832;
+    margin-right: 7px;
 }
 
 /*.stat-item {
