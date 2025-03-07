@@ -52,7 +52,7 @@ body{
     color: white;
     font-size: 24px;
     font-weight: bold;
-    background: url('../../images/styles/bg.png') center / cover no-repeat;
+   /* background: url('../../images/styles/bg.png') center / cover no-repeat;*/
 }
 .player-img {
     position: absolute;
@@ -316,7 +316,7 @@ body{
 
 .slots {
     display: flex;
-    gap: 2px;
+    gap: 0.5px;
     justify-content: space-between;
 }
 
