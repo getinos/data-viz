@@ -48,8 +48,11 @@
                 </div>
             
                 <div class='stat'>
-                    <h3>".($run4*4)+($run6*6)."</h3>
-                    <p>Runs</p>
+                    <h3>"//.($run4*4)+($run6*6).//
+                    
+                    
+                    $role"</h3>
+                    <p>Specialisation</p>
                 </div>
             
                 <div class='stat'>
